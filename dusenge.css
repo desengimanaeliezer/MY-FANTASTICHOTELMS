@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+}
+header {
+    background: #2b1bb3;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+    margin-bottom: 20;
+    font-style: italic;
+    
+}
+
+nav {
+    margin-top: 40px;
+}
+
+nav a {
+    color: white;
+     margin: 40px;
+    text-decoration: none;
+    font-size: 23px;
+    font-style: italic;
+    
+    
+}
+
+nav a:hover {
+    color: orange;
+}
+
+
+.footer{
+    color: aliceblue;
+    background: black;
+    padding:15px;
+    margin-top:180px;
+    width:33.5cm;
+    text-align: center;
+}

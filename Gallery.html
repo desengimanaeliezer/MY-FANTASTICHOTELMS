@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Gallery - Fantastic Hotel</title>
+<link rel="stylesheet" href="dusenge.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<style>
+
+
+/* TITLE */
+.title {
+    background: #ddd;
+    text-align: center;
+    padding: 30px;
+    margin: 20;
+}
+
+.title h2 {
+    font-size: 60px;
+    color: #3a1c8c;
+}
+
+/* GALLERY GRID */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-gap: 5px;
+}
+
+.gallery img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.gallery img:hover {
+    transform: scale(1.05);
+}
+
+/* MODAL (JS) */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    padding-top: 50px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+}
+
+.modal img {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+.footer{
+    color: aliceblue;
+    background: black;
+    padding:15px;
+    position: relative;
+    margin-top:0px;
+    width:33.5cm;
+    text-align: center;
+}
+.button:hover {
+    background: #2b1bb3;
+}
+button:hover {
+    background: #2b1bb3;
+}
+
+
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>FANTASTIC <span style="color:orange;"">HOTEL MANAGEMENT SYSTEM</span></h1>
+    <nav>
+        <a href="Home.html">Home</a>
+        <a href="About.html">About</a>
+        <a href="Rooms.html">Rooms</a>
+        <a href="Gallery.html">Gallery</a>
+        <a href="Contact.html">Contact</a>
+        <a href="Reservation.html">Reservation</a>
+    </nav>
+</header>
+<div class="title">
+    <h2>Our Gallery</h2>
+</div>
+
+<!-- GALLERY -->
+<div class="gallery">
+    <img src="ooo.png" onclick="openModal(this)">
+    <img src="xxx.png" onclick="openModal(this)">
+    <img src="ggg.png" onclick="openModal(this)">
+    <img src="fff.png" onclick="openModal(this)">
+    <img src="ttt.png" onclick="openModal(this)">
+    <img src="bbb.png" onclick="openModal(this)">
+     <img src="vvv.png" onclick="openModal(this)">
+     <img src="eee.png.png" onclick="openModal(this)">e
+</div>
+
+<!-- MODAL -->
+<div id="myModal" class="modal">
+    <span class="close" onclick="closeModal()">&times;</span>
+    <img id="modalImg">
+</div>
+<script>
+function openModal(img) {
+    document.getElementById("myModal").style.display = "block";
+    document.getElementById("modalImg").src = img.src;
+}
+
+function closeModal() {
+    document.getElementById("myModal").style.display = "none";
+}
+</script>
+
+<div class="footer">
+    
+    <button>Kinyarwanda</button>
+        <button>English</button>
+        <button>French</button>
+        <button>Swahili</button>
+        <p style="color: orange;"> &copy; FANTASTIC Hotel.All right Reserved</p>
+
+    </div>
+</body>
+</html>
