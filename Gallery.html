@@ -10,39 +10,62 @@
 <style>
 
 
-/* TITLE */
-.title {
-    background: #ddd;
-    text-align: center;
-    padding: 30px;
-    margin: 20;
+
+/* PAGE FADE IN */
+body {
+    animation: fadePage 1s ease-in;
 }
 
+@keyframes fadePage {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* TITLE ANIMATION */
 .title h2 {
     font-size: 60px;
     color: #3a1c8c;
+    animation: slideDown 1s ease-out;
 }
 
-/* GALLERY GRID */
-.gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    grid-gap: 5px;
+@keyframes slideDown {
+    from {
+        transform: translateY(-40px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
+/* GALLERY IMAGE ANIMATION */
 .gallery img {
     width: 100%;
     height: 250px;
     object-fit: cover;
     cursor: pointer;
-    transition: 0.3s;
+    transition: 0.4s ease;
+    animation: zoomIn 0.8s ease forwards;
 }
 
 .gallery img:hover {
-    transform: scale(1.05);
+    transform: scale(1.08) rotate(1deg);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-/* MODAL (JS) */
+@keyframes zoomIn {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* MODAL ANIMATION */
 .modal {
     display: none;
     position: fixed;
@@ -53,6 +76,12 @@
     width: 100%;
     height: 100%;
     background: rgba(0,0,0,0.9);
+    animation: fadeModal 0.3s ease;
+}
+
+@keyframes fadeModal {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
 
 .modal img {
@@ -60,22 +89,29 @@
     display: block;
     width: 80%;
     max-width: 700px;
+    animation: pop 0.3s ease;
 }
 
-.footer{
-    color: aliceblue;
-    background: black;
-    padding:15px;
-    position: relative;
-    margin-top:0px;
-    width:33.5cm;
-    text-align: center;
+@keyframes pop {
+    from {
+        transform: scale(0.6);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
-.button:hover {
-    background: #2b1bb3;
+
+/* BUTTON ANIMATION */
+button {
+    transition: all 0.3s ease;
 }
+
 button:hover {
+    transform: translateY(-3px);
     background: #2b1bb3;
+    color: white;
 }
 
 
@@ -117,13 +153,12 @@ button:hover {
     <img id="modalImg">
 </div>
 <script>
-function openModal(img) {
-    document.getElementById("myModal").style.display = "block";
-    document.getElementById("modalImg").src = img.src;
-}
-
-function closeModal() {
-    document.getElementById("myModal").style.display = "none";
+// close </scripmodal when clicking outside image
+window.onclick = function(event) {
+    let modal = document.getElementById("myModal");
+    if (event.target == modal) {
+        modal.style.display = "none";
+    }
 }
 </script>
 
